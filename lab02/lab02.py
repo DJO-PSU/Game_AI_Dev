@@ -1,4 +1,3 @@
-''' Lab 02 Exercise'''
 # Attribution Statement will be added later
 # -----------------
 # User Instructions
@@ -20,8 +19,19 @@ import itertools
 
 def best_hand(hand):
     "From a 7-card hand, return the best 5 card hand."
+
     # Your code here
-    pass
+    print('Getting best hand of')
+    print(hand)
+    highest_value = (-1,-1,-1)
+    set_of_five = ['0','0','0','0','0']
+    for comb in itertools.combinations(hand,5):
+        hand_value = hand_rank(comb)
+        if(highest_value <hand_value):
+            highest_value = hand_value
+            set_of_five = comb
+    print(set_of_five)
+    return set_of_five
     
 # ------------------
 # Provided Functions
@@ -96,4 +106,7 @@ def best_hand_try():
     return 'test_best_hand passes'
 
 if __name__ == '__main__':
-  print(best_hand_try())
+ print(best_hand_try())
+ ##print(sorted(best_hand("TD TC TH 7C 7D 8C 8S".split())))
+## print("hello")
+pass
