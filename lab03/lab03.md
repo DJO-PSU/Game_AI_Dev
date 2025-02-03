@@ -1,2 +1,3 @@
 # Prompt Engineering Process
 
+From adjusting temp: the lower the number was, the more correct the responce is to DnD 5e rules. However with a temp of 0.1 it did provide an Emoji of a music note. This is what was expected however I was hoping it will be more correct as it was still missing common rules and class features. I have also noticed that each responce in the same chain takes longer and longer. This is most likely from the LLM taking in a larger prompt and using it. If the VM had more RAM or CPU cores maybe this could be harder to tell.
