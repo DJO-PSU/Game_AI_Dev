@@ -6,10 +6,16 @@ from ollama import chat
 from util.llm_utils import pretty_stringify_chat, ollama_seed as seed
 
 # Add you code below
-sign_your_name = 'Pulin Agrawal'
-model = ''
-options = {}
-messages = []
+prompt = 'You are a Dungeons & Dragons DM (Dungeon Master). Your job is to ask the User for a class and subclass at a level at your choice. '
+sign_your_name = 'Devon Ott'
+model = "wizardlm2:7b"
+temperature = 2
+options = {
+  
+}
+messages = [{'role': 'assistant', 'content': ''},{'role':'user', 'content': prompt}]
+   
+
 
 
 # But before here.
@@ -18,9 +24,19 @@ options |= {'seed': seed(sign_your_name)}
 # Chat loop
 while True:
   response = chat(model=model, messages=messages, stream=False, options=options)
+  messages.append({'role': 'assistant', 'content': response.message.content})
   # Add your code below
-
-
+  responseString = "Wizard: "
+  responseString +=response.message.content
+  
+  print(responseString)
+  print('User: ')
+  
+  prompt = input()
+  if prompt =='/exit()':
+    break
+  message = {'role': 'user', 'content': prompt}
+  messages.append(message)
   # But before here.
   if messages[-1]['content'] == '/exit':
     break
