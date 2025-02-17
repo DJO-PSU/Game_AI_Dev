@@ -23,7 +23,7 @@ def run_console_chat(sign, **kwargs):
 lab04_params = {
     "template_file": "lab04\lab04_trader_chat.json",
     "sign": "Devon",
-    "inventory": ["Mana Potion", "Health Potion"],
+    "inventory": ['Mana Potion', 'Health Potion'],
     "end_regex": r"ORDER(.*)DONE"
 }
 
